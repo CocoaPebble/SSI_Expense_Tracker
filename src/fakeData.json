@@ -1,0 +1,19 @@
+[
+    {
+        "id": 1,
+        "Amount": 100,
+        "Text": "test1"
+    },
+
+    {
+        "id": 2,
+        "Amount": 200,
+        "Text": "test2"
+    },
+
+    {
+        "id": 3,
+        "Amount": -300,
+        "Text": "test3"
+    }
+]
