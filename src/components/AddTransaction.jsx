@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { addTransaction } from '../slicers/transactionSlicer';
 import { useForm } from 'react-hook-form';
 import { TextField, Button } from '@material-ui/core';
+import { v4 as uuidV4 } from 'uuid';
 import '../css/addTransaction.css';
 
 export default function App() {
@@ -13,9 +14,8 @@ export default function App() {
     const onSubmit = useCallback(
         (data, event) => {
             data.amount = +data.amount;
-            data.id = Math.random();
+            data.id = uuidV4();
             dispatch(addTransaction(data));
-            console.log(data);
             // clean form
             event.target[0].value = '';
             event.target[1].value = '';

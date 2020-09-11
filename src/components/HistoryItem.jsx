@@ -1,8 +1,18 @@
 import React from 'react';
 import { Paper } from '@material-ui/core';
+import { useDispatch } from 'react-redux';
+import { deleteTransaction } from '../slicers/transactionSlicer';
 import '../css/historyItem.css';
 
 export default function HistoryItem({ data }) {
+    const dispatch = useDispatch();
+
+    const handleDelete = (id) => {
+        if (window.confirm('delete')) {
+            dispatch(deleteTransaction(id));
+        }
+    };
+
     return (
         <>
             <li>
@@ -18,7 +28,7 @@ export default function HistoryItem({ data }) {
                 >
                     <div>{data.text}</div>
                     <div>{data.amount}</div>
-                    <button>del</button>
+                    <button onClick={() => handleDelete(data.id)}>del</button>
                 </Paper>
             </li>
         </>
