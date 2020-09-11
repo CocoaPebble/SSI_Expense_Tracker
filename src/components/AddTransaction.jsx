@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { addTransaction } from '../slicers/transactionSlicer';
 import { useForm } from 'react-hook-form';
@@ -9,22 +9,26 @@ export default function App() {
     const dispatch = useDispatch();
 
     const { register, handleSubmit, errors } = useForm();
-    const onSubmit = (data, event) => {
-        data.amount = +data.amount;
-        data.id = Math.random();
-        dispatch(addTransaction(data));
-        console.log(data);
-        // clean form
-        event.target[0].value = '';
-        event.target[1].value = '';
-    };
+
+    const onSubmit = useCallback(
+        (data, event) => {
+            data.amount = +data.amount;
+            data.id = Math.random();
+            dispatch(addTransaction(data));
+            console.log(data);
+            // clean form
+            event.target[0].value = '';
+            event.target[1].value = '';
+        },
+        [dispatch]
+    );
 
     return (
         <div className="addTransactionContainer">
             <h2 className="h2"> Add New Transaction</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <TextField
-                    className="textfield"
+                    className="textField"
                     id="description"
                     label="Text"
                     type="text"
@@ -38,7 +42,7 @@ export default function App() {
                 />
 
                 <TextField
-                    className="textfield"
+                    className="textField"
                     id="amount"
                     label="Amount"
                     type="text"

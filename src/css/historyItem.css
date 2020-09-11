@@ -1,0 +1,6 @@
+.historyItem {
+    margin-top: 10px;
+    padding: 2px 10px;
+    display: flex;
+    justify-content: space-between;
+}

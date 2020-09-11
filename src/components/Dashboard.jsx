@@ -26,20 +26,24 @@ export default function Dashboard() {
         <div className="dashboardContainer">
             <h1> Expense Tracker</h1>
             <div>
-                <h2>Balance :</h2>
-                <div>{totalAmount}</div>
+                <h2 style={{ display: 'inline' }}>Balance: </h2>
+                <span style={{ fontSize: '25px' }}> ${totalAmount}</span>
             </div>
-            <div style={{ display: 'flex', padding: '10px' }}>
-                <Paper style={{ flexBasis: '50%' }}>
-                    <h3>Income :</h3>
-                    <div>{income}</div>
-                </Paper>
-                <Paper style={{ flexBasis: '50%' }}>
-                    <h3>Expanse :</h3>
-
-                    <div>{expense}</div>
-                </Paper>
-            </div>
+            <Paper elevation={3} className="paper">
+                <div
+                    className="paperItem"
+                    style={{
+                        borderRight: '1px #ddd solid',
+                    }}
+                >
+                    <h3>INCOME</h3>
+                    <div style={{ color: 'green' }}>${income}</div>
+                </div>
+                <div className="paperItem">
+                    <h3>EXPENSE</h3>
+                    <div style={{ color: 'red' }}>${expense}</div>
+                </div>
+            </Paper>
         </div>
     );
 }
