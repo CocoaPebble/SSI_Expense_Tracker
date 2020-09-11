@@ -1,19 +1,19 @@
 [
     {
         "id": 1,
-        "Amount": 100,
-        "Text": "test1"
+        "amount": 100,
+        "text": "test1"
     },
 
     {
         "id": 2,
-        "Amount": 200,
-        "Text": "test2"
+        "amount": 200,
+        "text": "test2"
     },
 
     {
         "id": 3,
-        "Amount": -300,
-        "Text": "test3"
+        "amount": -300,
+        "text": "test3"
     }
 ]

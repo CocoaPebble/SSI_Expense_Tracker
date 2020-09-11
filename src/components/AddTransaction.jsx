@@ -3,12 +3,21 @@ import { useDispatch } from 'react-redux';
 import { addTransaction } from '../slicers/transactionSlicer';
 import { useForm } from 'react-hook-form';
 import { TextField, Button } from '@material-ui/core';
-import '../App.css';
+import '../css/addTransaction.css';
 
 export default function App() {
+    const dispatch = useDispatch();
+
     const { register, handleSubmit, errors } = useForm();
-    const onSubmit = (data) => console.log(data);
-    // console.log(errors);
+    const onSubmit = (data, event) => {
+        data.amount = +data.amount;
+        data.id = Math.random();
+        dispatch(addTransaction(data));
+        console.log(data);
+        // clean form
+        event.target[0].value = '';
+        event.target[1].value = '';
+    };
 
     return (
         <div className="container">
@@ -17,35 +26,39 @@ export default function App() {
                 <TextField
                     className="textfield"
                     id="description"
-                    label="Description"
+                    label="Text"
                     type="text"
-                    name="Descriptions"
-                    inputRef={register({ required: true, maxLength: 80 })}
+                    name="text"
+                    inputRef={register({
+                        required: true,
+                        maxLength: 80,
+                    })}
+                    error={!!errors.text}
                 />
 
                 <TextField
                     className="textfield"
                     id="amount"
                     label="Amount"
-                    prefix="$"
                     type="text"
-                    name="Amount"
+                    name="amount"
                     inputRef={register({
                         required: true,
                         maxLength: 100,
-                        pattern: /^\$?([0-9]{1,3},([0-9]{3},)*[0-9]{3}|[0-9]+)(\.[0-9][0-9])?$/i,
+                        pattern: /^[+-]?([0-9]+([.][0-9]{1,2})?|[.][0-9]{1,2})$/i,
                     })}
+                    error={!!errors.amount}
                 />
-                <p></p>
-                <Button
-                    className="btn-submit"
-                    type="submit"
-                    variant="contained"
-                    color="primary"
-                >
-                    {' '}
-                    Add{' '}
-                </Button>
+                <div className="submit-container">
+                    <Button
+                        className="btn-submit"
+                        type="submit"
+                        variant="contained"
+                        color="primary"
+                    >
+                        Add
+                    </Button>
+                </div>
             </form>
         </div>
     );
