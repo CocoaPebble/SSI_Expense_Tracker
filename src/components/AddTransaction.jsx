@@ -20,7 +20,7 @@ export default function App() {
     };
 
     return (
-        <div className="container">
+        <div className="addTransactionContainer">
             <h2 className="h2"> Add New Transaction</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <TextField
@@ -34,6 +34,7 @@ export default function App() {
                         maxLength: 80,
                     })}
                     error={!!errors.text}
+                    helperText={!!errors.text && 'Invalid'}
                 />
 
                 <TextField
@@ -48,8 +49,9 @@ export default function App() {
                         pattern: /^[+-]?([0-9]+([.][0-9]{1,2})?|[.][0-9]{1,2})$/i,
                     })}
                     error={!!errors.amount}
+                    helperText={!!errors.amount && 'Invalid'}
                 />
-                <div className="submit-container">
+                <div className="submitContainer">
                     <Button
                         className="btn-submit"
                         type="submit"

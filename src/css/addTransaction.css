@@ -1,6 +1,6 @@
-.container {
+.addTransactionContainer {
     margin: 30px auto;
-    width: 350px;
+    width: 100%;
     /* position: absolute;
     top: 50%;
     left: 50%;
@@ -20,6 +20,6 @@
     padding: 10px;
 }
 
-.submit-container {
+.submitContainer {
     margin-top: 10px;
 }

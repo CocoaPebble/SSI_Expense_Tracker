@@ -8,11 +8,11 @@ import AddTransaction from './components/AddTransaction';
 function App() {
     return (
         <div className="App">
-            <Dashboard />
-
-            <History />
-
-            <AddTransaction />
+            <div className="transactionApp">
+                <Dashboard />
+                <History />
+                <AddTransaction />
+            </div>
         </div>
     );
 }
