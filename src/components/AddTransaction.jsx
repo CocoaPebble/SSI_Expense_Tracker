@@ -28,7 +28,7 @@ export default function App() {
             <h2 className="h2"> Add New Transaction</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <TextField
-                    className="textField"
+                    className="addTransactionTextField"
                     id="description"
                     label="Text"
                     type="text"
@@ -42,7 +42,7 @@ export default function App() {
                 />
 
                 <TextField
-                    className="textField"
+                    className="addTransactionTextField"
                     id="amount"
                     label="Amount"
                     type="text"

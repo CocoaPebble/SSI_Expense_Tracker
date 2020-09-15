@@ -4,11 +4,18 @@ import { useDispatch } from 'react-redux';
 import { deleteTransaction } from '../slicers/transactionSlicer';
 import '../css/historyItem.css';
 
-export default function HistoryItem({ data }) {
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrashAlt, faEdit } from '@fortawesome/free-solid-svg-icons';
+
+export default function HistoryItem({
+    data,
+    setDisplayEditCard,
+    setEditCardInitState,
+}) {
     const dispatch = useDispatch();
 
     const handleDelete = (id) => {
-        if (window.confirm('delete')) {
+        if (window.confirm('delete?')) {
             dispatch(deleteTransaction(id));
         }
     };
@@ -30,12 +37,23 @@ export default function HistoryItem({ data }) {
                         <div>{data.text}</div>
                         <div>{data.amount}</div>
                     </Paper>
-                    <span
+                    <FontAwesomeIcon
+                        icon={faTrashAlt}
                         className="delBtn"
                         onClick={() => handleDelete(data.id)}
-                    >
-                        &times;
-                    </span>
+                    />
+                    <FontAwesomeIcon
+                        icon={faEdit}
+                        className="editBtn"
+                        onClick={() => {
+                            setDisplayEditCard(true);
+                            setEditCardInitState({
+                                id: data.id,
+                                text: data.text,
+                                amount: data.amount,
+                            });
+                        }}
+                    />
                 </div>
             </li>
         </>

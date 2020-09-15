@@ -27,7 +27,9 @@ export default function Dashboard() {
             <h1> Expense Tracker</h1>
             <div>
                 <h2 style={{ display: 'inline' }}>Balance: </h2>
-                <span style={{ fontSize: '25px' }}> ${totalAmount}</span>
+                <span data-testid="jestTest" style={{ fontSize: '25px' }}>
+                    ${totalAmount}
+                </span>
             </div>
             <Paper elevation={3} className="paper">
                 <div

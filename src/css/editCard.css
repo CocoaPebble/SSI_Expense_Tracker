@@ -1,0 +1,30 @@
+.editCardContainer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    background: rgb(0, 0, 0, 0.4);
+}
+
+.formContainer {
+    width: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: auto;
+}
+
+.editCardForm {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.editCardForm > span {
+    font-size: 40px;
+    align-self: flex-end;
+    padding-right: 10px;
+}
