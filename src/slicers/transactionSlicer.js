@@ -6,13 +6,13 @@ export const transactionSlice = createSlice({
         allTransactions: [
             {
                 id: 1,
-                amount: 300,
+                amount: 100,
                 text: 'test1',
             },
 
             {
                 id: 2,
-                amount: 100,
+                amount: 200,
                 text: 'test2',
             },
 
@@ -37,7 +37,6 @@ export const transactionSlice = createSlice({
         },
 
         deleteTransaction: (state, action) => {
-            console.log(state.allTransactions);
             return {
                 ...state,
                 allTransactions: state.allTransactions.filter(

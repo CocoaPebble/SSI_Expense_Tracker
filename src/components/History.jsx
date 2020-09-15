@@ -38,10 +38,9 @@ export default function History() {
             case 0:
                 return filterTransactions;
             case 1:
-                return filterTransactions.sort((a, b) => a.amount - b.amount);
-            case 2:
                 return filterTransactions.sort((a, b) => b.amount - a.amount);
-
+            case 2:
+                return filterTransactions.sort((a, b) => a.amount - b.amount);
             default:
                 return filterTransactions;
         }
@@ -77,6 +76,9 @@ export default function History() {
                     onClick={changeSortState}
                     title="sort"
                 />
+                {sortState === 0 && <span>&minus;</span>}
+                {sortState === 1 && <span>&uarr;</span>}
+                {sortState === 2 && <span>&darr;</span>}
             </div>
             <ul>
                 {displayHistoryList.map((e) => (

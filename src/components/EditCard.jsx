@@ -24,7 +24,7 @@ export default function EditCard({ setDisplayEditCard, initState }) {
         <div
             className="editCardContainer"
             onClick={(e) => {
-                if (e.target.id === 'editCardContainer')
+                if (e.target.className === 'editCardContainer')
                     setDisplayEditCard(false);
             }}
         >
