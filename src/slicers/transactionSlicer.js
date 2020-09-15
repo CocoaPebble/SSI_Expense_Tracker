@@ -6,13 +6,13 @@ export const transactionSlice = createSlice({
         allTransactions: [
             {
                 id: 1,
-                amount: 100,
+                amount: 300,
                 text: 'test1',
             },
 
             {
                 id: 2,
-                amount: 200,
+                amount: 100,
                 text: 'test2',
             },
 

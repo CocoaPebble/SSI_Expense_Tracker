@@ -1,0 +1,16 @@
+.funcBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sortBtn {
+    font-size: 20px;
+    padding: 12px;
+    border-radius: 15%;
+}
+.sortBtn:hover {
+    cursor: pointer;
+    background: #eee;
+    transition: 0.3s ease;
+}
